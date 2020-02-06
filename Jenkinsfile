@@ -10,7 +10,6 @@ pipeline {
  	    stage('Docker build') {
         	steps {
         		echo 'Creating Docker Container..'
-        		unstash 'targetfiles'
         		sh 'docker build --no-cache -t ${DOCKER_REPOSITORY_URL}/${ARTIFACT_GROUP}/${ARTIFACT_NAME} .'
         	}
         }
