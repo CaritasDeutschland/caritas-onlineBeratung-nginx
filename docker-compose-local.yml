@@ -1,8 +1,9 @@
 version: '3.7'
 services:
     proxy:
+        build: .
         container_name: proxynginx
-        image: viartifacts-docker.jfrog.io/caritas-online-beratung/nginx:master-3
+        image: proxynginx:latest
         restart: "no"
         ports:
           - 80:80
