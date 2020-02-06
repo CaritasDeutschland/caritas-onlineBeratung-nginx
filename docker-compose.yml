@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+    proxy:
+        build: .
+        container_name: proxynginx
+        image: proxynginx:latest
+        restart: "no"
+        ports:
+          - 80:80
+        volumes:
+          - ./log:/var/log/nginx
+          - ./nginx-logrotate:/etc/nginx-logrotate
