@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+    proxy:
+        container_name: proxynginx
+        image: <repository_url>/<repository_group>/<artifact_name>:<artifact_version>
+        restart: "no"
+        ports:
+          - 80:80
+        volumes:
+          - ./log:/var/log/nginx
+          - ./nginx-logrotate:/etc/nginx-logrotate
