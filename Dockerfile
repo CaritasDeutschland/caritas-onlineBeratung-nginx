@@ -1,4 +1,4 @@
-FROM nginx:1.16.1
+FROM nginx:1.19.3
 
 # Remove sym links from nginx image
 RUN rm /var/log/nginx/access.log
