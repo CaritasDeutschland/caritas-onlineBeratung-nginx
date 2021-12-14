@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/CaritasDeutschland/caritas-onlineBeratung-nginx/compare/v1.2.0...v1.3.0) (2021-12-14)
+
+
+### Features
+
+* updated dockerImage.yml ([6dd0314](https://github.com/CaritasDeutschland/caritas-onlineBeratung-nginx/commit/6dd0314d799e28ce72e7519810327bd1761dd77b))
+
 ## [1.2.0](https://github.com/CaritasDeutschland/caritas-onlineBeratung-nginx/compare/v1.1.0...v1.2.0) (2021-06-18)
 
 
