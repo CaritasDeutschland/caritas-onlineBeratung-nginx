@@ -1,5 +1,5 @@
 {
-  "name": "caritas-online-beratung-nginx",
+  "name": "online-beratung-nginx",
   "version": "1.2.0",
   "scripts": {
     "release": "standard-version"
