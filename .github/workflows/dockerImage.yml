@@ -7,15 +7,23 @@ on:
 
 jobs:
   push_to_registry:
+    strategy:
+        matrix:
+            registry: ['docker.pkg.github.com', 'ghcr.io']
     name: Push Docker image to GitHub Packages
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Prepare Docker variables
+        run: |
+          echo "DOCKER_REGISTRY=$(echo "${{ matrix.registry }}/${{ github.repository }}" | awk '{print tolower($0)}')" >> $GITHUB_ENV
+          echo "DOCKER_IMAGE=$(echo "${{ github.repository }}" | awk -F / '{print tolower($2)}')" >> $GITHUB_ENV
+        shell: bash
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v1.1.1
         with:
           username: ${{ secrets.GH_PACKAGE_RELEASE_USER }}
           password: ${{ secrets.GH_PACKAGE_RELEASE_TOKEN }}
-          registry: docker.pkg.github.com
-          repository: caritasdeutschland/caritas-onlineberatung-nginx/nginx-image
+          registry: ${{ env.DOCKER_REGISTRY }}
+          repository: ${{ env.DOCKER_IMAGE }}
           tag_with_ref: true
